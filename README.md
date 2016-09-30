@@ -10,6 +10,8 @@ The control uses the Target-Action design pattern to notify your app when the us
  
 UI customization like changing track color, thumb color, thumb image is supported.
 
+The control is IBDesignable and most properties are IBInspectable.
+
 Improvements to do:
 
 - Improve dragging when the two thumbs overlap
