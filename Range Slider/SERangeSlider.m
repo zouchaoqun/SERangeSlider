@@ -369,7 +369,7 @@ static const CGFloat SERangeSliderThumbSideLength = 29.0;
         return 0;
     }
     
-    return (self.bounds.size.width - self.thumbSideLength) * (value - self.minValue) / (self.maxValue - self.minValue) + self.thumbSideLength/2;
+    return (self.bounds.size.width - self.thumbSideLength * 2) * (value - self.minValue) / (self.maxValue - self.minValue) + self.thumbSideLength;
 }
 
 - (void)updateSubLayerFrames {
@@ -380,11 +380,11 @@ static const CGFloat SERangeSliderThumbSideLength = 29.0;
     [self.trackLayer setNeedsDisplay];
   
     CGFloat lowerPosition = [self positionForValue:self.lowerValue];
-    self.lowerThumbLayer.frame = CGRectMake(lowerPosition - self.thumbSideLength/2, self.trackLayer.frame.origin.y - self.thumbSideLength/2, self.thumbSideLength, self.thumbSideLength);
+    self.lowerThumbLayer.frame = CGRectMake(lowerPosition - self.thumbSideLength, self.trackLayer.frame.origin.y - self.thumbSideLength/2, self.thumbSideLength, self.thumbSideLength);
     [self.lowerThumbLayer setNeedsDisplay];
 
     CGFloat upperPosition = [self positionForValue:self.upperValue];
-    self.upperThumbLayer.frame = CGRectMake(upperPosition - self.thumbSideLength/2, self.trackLayer.frame.origin.y - self.thumbSideLength/2, self.thumbSideLength, self.thumbSideLength);
+    self.upperThumbLayer.frame = CGRectMake(upperPosition, self.trackLayer.frame.origin.y - self.thumbSideLength/2, self.thumbSideLength, self.thumbSideLength);
     [self.upperThumbLayer setNeedsDisplay];
     
     [CATransaction commit];
@@ -395,7 +395,7 @@ static const CGFloat SERangeSliderThumbSideLength = 29.0;
     // shadow - magic numbers are trying to mimic the UISlider shadow
     thumbLayer.shadowOffset = CGSizeMake(0, self.trackHeight*0.8);
     thumbLayer.shadowColor = [UIColor darkGrayColor].CGColor;
-    thumbLayer.shadowRadius = self.trackHeight*0.8;
+    thumbLayer.shadowRadius = self.trackHeight*0.5;
     thumbLayer.shadowOpacity = 0.7;
 }
 
