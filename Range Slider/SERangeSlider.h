@@ -76,12 +76,12 @@ IB_DESIGNABLE
 /**
  The image on the lower thumb control. The default is no image. The image content mode is center and currently it can't be changed.
  */
-@property (copy, nonatomic) IBInspectable UIImage *lowerThumbImage;
+@property (strong, nonatomic) IBInspectable UIImage *lowerThumbImage;
 
 /**
  The image on the upper thumb control. The default is no image. The image content mode is center and currently it can't be changed.
  */
-@property (copy, nonatomic) IBInspectable UIImage *upperThumbImage;
+@property (strong, nonatomic) IBInspectable UIImage *upperThumbImage;
 
 /**
  The thumb control is always a square and this is the side length of the thumb control.

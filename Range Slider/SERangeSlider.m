@@ -461,6 +461,14 @@ static const CGFloat SERangeSliderThumbSideLength = 29.0;
     CGContextFillPath(ctx);
 }
 
+- (void)display {
+    [super display];
+    
+    if (self.thumbImage) {
+        self.imageLayer.frame = self.bounds;
+    }
+}
+
 - (void)setThumbImage:(UIImage *)thumbImage {
     if (_thumbImage != thumbImage) {
         _thumbImage = thumbImage;
